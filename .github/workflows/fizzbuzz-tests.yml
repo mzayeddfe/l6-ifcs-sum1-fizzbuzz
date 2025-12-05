@@ -1,0 +1,28 @@
+name: Fizzbuzz tests
+
+# specifcy when we want this to be triggered
+# we want to trigger it for every push and PR
+
+on: [push, pull_request]
+
+#specify the jobs needed for the CI
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest 
+
+    steps: 
+
+    - uses: actions/checkout@v4
+
+    - name: Set up python 
+      uses: actions/setup-python@v5
+      with: 
+        python-version: "3.x" # to use any version of python 3 
+
+#make sure we have pytest and upgrades if needed 
+    - name: Install dependencies 
+      run: pip install --upgrade pip pytest 
+# run the actual test 
+    - name: Run pytest 
+      run: pytest 
