@@ -6,7 +6,7 @@ def fizzbuzz(num_entry):
     # create checks to ensure that num_entry is valid 
 
     #check if num_entry is numeric or integer 
-# if num_entrey isnt numeric
+# if num_entry isn't numeric
     if not isinstance(num_entry, int):
         # then give this error message
         raise TypeError("num_entry must be an integer")
@@ -55,5 +55,3 @@ def fizzbuzz(num_entry):
 
     return results
 
-
-print(fizzbuzz(10))

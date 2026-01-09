@@ -1,6 +1,6 @@
 name: Fizzbuzz tests
 
-# specifcy when we want this to be triggered
+# specify when we want this to be triggered
 # we want to trigger it for every push and PR
 
 on: [push, pull_request]
