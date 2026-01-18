@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>fizzbuzz_notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>task1-ifcs-sum1-fizzbuzz-code</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7520,6 +7520,7 @@ a.anchor-link {
 <h1 id="FizzBuzz-Project">FizzBuzz Project<a class="anchor-link" href="#FizzBuzz-Project">¶</a></h1><h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">¶</a></h2><ul>
 <li><a href="#readme">README</a></li>
 <li><a href="#code-for-fizzbuzz-function">Code</a></li>
+<li><a href="#tests">Tests</a></li>
 <li><a href="#github-actions-workflow-yaml">CI YML</a></li>
 </ul>
 <h2 id="README">README<a class="anchor-link" href="#README">¶</a></h2><h3 id="User-Documentation">User Documentation<a class="anchor-link" href="#User-Documentation">¶</a></h3><h4 id="What-is-this?">What is this?<a class="anchor-link" href="#What-is-this?">¶</a></h4><p>This program implements the classic FizzBuzz problem. To use it, run the <code>fizzbuzz.py</code> script. The function lists numbers from 1 to the number you provide, but for multiples of 3, it prints "Fizz" instead of the number, for multiples of 5, it prints "Buzz", and for multiples of both 3 and 5, it prints "FizzBuzz".</p>
@@ -7647,6 +7648,72 @@ a.anchor-link {
         <span class="c1"># return the result list </span>
 
     <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ff127eb1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Tests">Tests<a class="anchor-link" href="#Tests">¶</a></h2><p>Below is the code used to test the fizzbuzz function exists, the function behaves as expected and error handling works as expected.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1e56eb08">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># import the fizzbuzz function from the fizzbuzz script </span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">fizzbuzz</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+
+<span class="c1"># start putting the tests into functions </span>
+
+
+<span class="c1">#test the function exists </span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_exists</span><span class="p">():</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">fizzbuzz</span>
+    <span class="k">assert</span> <span class="nb">callable</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">)</span>
+
+<span class="c1"># test the basic functionality of the fizzbuzz function </span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_basics</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">"fizz"</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s2">"buzz"</span><span class="p">]</span>
+
+
+<span class="c1"># test the 0 error</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_zero_error</span><span class="p">():</span>
+    <span class="c1">#import pytest </span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># test the negative value error</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_negative</span><span class="p">():</span>
+    <span class="c1">#import pytest</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># test the error for the data type of num_entry </span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_type</span><span class="p">():</span>
+    <span class="c1">#import pytest</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+        <span class="n">fizzbuzz</span><span class="p">(</span><span class="s2">"hello!"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

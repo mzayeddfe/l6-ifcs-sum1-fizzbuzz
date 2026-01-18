@@ -6,6 +6,13 @@ import pytest
 
 # start putting the tests into functions 
 
+
+#test the function exists 
+
+def test_fizzbuzz_exists():
+    from fizzbuzz import fizzbuzz
+    assert callable(fizzbuzz)
+
 # test the basic functionality of the fizzbuzz function 
 
 
