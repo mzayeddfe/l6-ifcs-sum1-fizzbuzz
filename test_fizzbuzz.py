@@ -17,3 +17,9 @@ def test_multi_three():
 
 def test_multi_five():
     assert fizzbuzz(5) == "Buzz"
+
+
+# test function works for multiples of 15 
+
+def test_multi_fifteen():
+    assert fizzbuzz(15) == "Fizzbuzz"
