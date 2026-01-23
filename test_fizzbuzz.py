@@ -11,3 +11,9 @@ def test_return_as_string():
 
 def test_multi_three():
     assert fizzbuzz(3) == "Fizz"
+
+
+# test function works for multiples of 5 
+
+def test_multi_five():
+    assert fizzbuzz(5) == "Buzz"
