@@ -7521,9 +7521,16 @@ a.anchor-link {
 <li><a href="#readme">README</a></li>
 <li><a href="#code-for-fizzbuzz-function">Code</a></li>
 <li><a href="#tests">Tests</a></li>
-<li><a href="#github-actions-workflow-yaml">CI YML</a></li>
+<li><a href="#gitHub-actions-workflow-yml">CI YML</a></li>
 </ul>
-<h2 id="README">README<a class="anchor-link" href="#README">¶</a></h2><h3 id="User-Documentation">User Documentation<a class="anchor-link" href="#User-Documentation">¶</a></h3><h4 id="What-is-this?">What is this?<a class="anchor-link" href="#What-is-this?">¶</a></h4><p>This program implements the classic FizzBuzz problem. To use it, run the <code>fizzbuzz.py</code> script. The function lists numbers from 1 to the number you provide, but for multiples of 3, it prints "Fizz" instead of the number, for multiples of 5, it prints "Buzz", and for multiples of both 3 and 5, it prints "FizzBuzz".</p>
+<p><a id="readme"></a></p>
+<h2 id="README">README<a class="anchor-link" href="#README">¶</a></h2><h3 id="User-Documentation">User Documentation<a class="anchor-link" href="#User-Documentation">¶</a></h3><h4 id="What-is-this?">What is this?<a class="anchor-link" href="#What-is-this?">¶</a></h4><p>This program implements the classic FizzBuzz problem. The main logic is in <code>fizzbuzz.py</code>, and tests are in <code>test_fizzbuzz.py</code>. The function takes a single integer and returns:</p>
+<ul>
+<li>"Fizzbuzz" if the number is divisible by both 3 and 5</li>
+<li>"Fizz" if divisible by 3</li>
+<li>"Buzz" if divisible by 5</li>
+<li>The number as a string otherwise.</li>
+</ul>
 <h4 id="How-do-I-use-it?">How do I use it?<a class="anchor-link" href="#How-do-I-use-it?">¶</a></h4><ol>
 <li><a href="#installing-dependencies">Install dependencies</a> if you do not already have them.</li>
 <li><a href="#using-the-fizzbuzz-function-in-your-code">Use the guide for the FizzBuzz function</a></li>
@@ -7536,33 +7543,36 @@ a.anchor-link {
 </code></pre>
 </li>
 </ul>
-<h4 id="Using-the-fizzbuzz-Function-in-Your-Code">Using the fizzbuzz Function in Your Code<a class="anchor-link" href="#Using-the-fizzbuzz-Function-in-Your-Code">¶</a></h4><p>You can import the <code>fizzbuzz</code> function from <code>fizzbuzz.py</code> and use it in your own Python scripts or in the Python interactive shell.</p>
+<h4 id="Using-the-fizzbuzz-Function-in-Your-Code">Using the fizzbuzz Function in Your Code<a class="anchor-link" href="#Using-the-fizzbuzz-Function-in-Your-Code">¶</a></h4><p>You can import the <code>fizzbuzz</code> function from <code>fizzbuzz.py</code> and use it in your own Python scripts or in the Python interactive shell. The function returns a string for a single number.</p>
 <h5 id="Example-Usage">Example Usage<a class="anchor-link" href="#Example-Usage">¶</a></h5><ol>
 <li>Open a Python shell or create a new Python script in the same directory.</li>
 <li>Import the function:<div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">fizzbuzz</span>
 </pre></div>
 </li>
-<li>Call the function with your desired range (e.g., 1 to 100):<div class="highlight"><pre><span></span><span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<li>Call the function with your desired range (e.g., 1 to 100):<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>  <span class="c1"># Output: Fizzbuzz</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>   <span class="c1"># Output: Fizz</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># Output: Buzz</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>   <span class="c1"># Output: 7</span>
 </pre></div>
 </li>
 </ol>
-<p>This will print the FizzBuzz sequence from 1 to 100.</p>
+<p>This will print the FizzBuzz result for a single number.</p>
 <h3 id="Technical-Documentation">Technical Documentation<a class="anchor-link" href="#Technical-Documentation">¶</a></h3><ul>
 <li><strong>fizzbuzz.py</strong>: Contains the main logic for the FizzBuzz problem.</li>
-<li><strong>test_fizzbuzz.py</strong>: Contains tests for the FizzBuzz implementation using pytest.</li>
+<li><strong>test_fizzbuzz.py</strong>: Contains tests for the FizzBuzz implementation using pytest. (Note: The test file must be named with underscores, not dashes, for pytest to discover it.)</li>
 <li><strong>.github/workflows/fizzbuzz-tests.yml</strong>: GitHub Actions workflow file that automatically runs the test suite on every push and pull request. It sets up a Python environment, installs dependencies, and runs pytest to ensure code quality and correctness.</li>
 </ul>
-<p>The main function iterates from 1 to the number provided to the function and prints the appropriate output based on divisibility by 3 and/or 5.</p>
+<p>The main function takes a single integer and returns the appropriate FizzBuzz string based on divisibility by 3 and/or 5.</p>
 <h3 id="Developer-Documentation">Developer Documentation<a class="anchor-link" href="#Developer-Documentation">¶</a></h3><h4 id="Project-Structure">Project Structure<a class="anchor-link" href="#Project-Structure">¶</a></h4><ul>
 <li><code>fizzbuzz.py</code>: Main script.</li>
-<li><code>test_fizzbuzz.py</code>: Test script.</li>
+<li><code>test_fizzbuzz.py</code>: Test script (ensure the file is named with underscores, not dashes).</li>
 <li><code>.github/workflows/fizzbuzz-tests.yml</code>: Continuous Integration (CI) workflow for automated testing with GitHub Actions.</li>
 </ul>
 <h4 id="Continuous-Integration">Continuous Integration<a class="anchor-link" href="#Continuous-Integration">¶</a></h4><p>All tests are automatically run on GitHub Actions for every push and pull request using the workflow defined in <code>.github/workflows/fizzbuzz-tests.yml</code>. This ensures that all code changes are tested before being merged.</p>
 <h4 id="How-to-Run-Tests-Locally">How to Run Tests Locally<a class="anchor-link" href="#How-to-Run-Tests-Locally">¶</a></h4><p>To run the tests locally, make sure you are in the project root directory. Run the following command:</p>
 <pre><code>pytest
 </code></pre>
-<p>Pytest will automatically discover and run all test files named <code>test_*.py</code>.</p>
+<p>Pytest will automatically discover and run all test files named <code>test_*.py</code> (with underscores).</p>
 <h4 id="Contribution-Guidelines">Contribution Guidelines<a class="anchor-link" href="#Contribution-Guidelines">¶</a></h4><ul>
 <li>Follow PEP8 style guidelines.</li>
 <li>Write tests for new features or bug fixes.</li>
@@ -7578,6 +7588,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a id="code-for-fizzbuzz-function"></a></p>
 <h2 id="Code-for-fizzbuzz-function">Code for fizzbuzz function<a class="anchor-link" href="#Code-for-fizzbuzz-function">¶</a></h2><p>Below you will find the code for the fizzbuzz function.</p>
 </div>
 </div>
@@ -7590,64 +7601,26 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># fizzbuzz.py</span>
+<div class="highlight hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 
-<span class="c1">#create a function for fizzbuzz</span>
+    <span class="c1">#negative value check</span>
 
-<span class="c1">#define the function </span>
-<span class="k">def</span><span class="w"> </span><span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">num_entry</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Input must be a non negative number"</span><span class="p">)</span>
 
-    <span class="c1"># create checks to ensure that num_entry is valid </span>
 
-    <span class="c1">#check if num_entry is numeric or integer </span>
-<span class="c1"># if num_entry isn't numeric</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num_entry</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="c1"># then give this error message</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"num_entry must be an integer"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="s2">"Fizzbuzz"</span>
     
-    <span class="c1"># if num_entry is 0</span>
-
-    <span class="k">if</span> <span class="n">num_entry</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
-        <span class="c1"># then give this error msg</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s2">"num_entry must be bigger than 0"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="s2">"Fizz"</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="s2">"Buzz"</span>
     
-    <span class="c1"># if num_entry is negative </span>
 
-    <span class="k">if</span> <span class="n">num_entry</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"num_entry must not be negative"</span><span class="p">)</span>
-    
-    <span class="c1">#start an empty list </span>
 
-    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># start a for loop for the fizzbuzz problem </span>
-
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_entry</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-
-        <span class="c1"># if x is a multiple of 3 AND 5 then </span>
-
-        <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="c1">#append fizzbuzz to the list </span>
-            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"fizzbuzz"</span><span class="p">)</span>
-        <span class="c1">#  if the x is a multiple of 3 then </span>
-        <span class="k">elif</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="c1">#append fizz to the list</span>
-            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"fizz"</span><span class="p">)</span>
-
-        <span class="c1"># if the x is a multiple of 5 </span>
-
-        <span class="k">elif</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
-            <span class="c1"># append buzz to the list</span>
-            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"buzz"</span><span class="p">)</span>
-        
-        <span class="c1"># if none of those conditions are met then</span>
-
-        <span class="k">else</span><span class="p">:</span> 
-            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-        <span class="c1"># return the result list </span>
-
-    <span class="k">return</span> <span class="n">results</span>
+    <span class="c1">#return the input as strings</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7660,6 +7633,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a id="tests"></a></p>
 <h2 id="Tests">Tests<a class="anchor-link" href="#Tests">¶</a></h2><p>Below is the code used to test the fizzbuzz function exists, the function behaves as expected and error handling works as expected.</p>
 </div>
 </div>
@@ -7672,48 +7646,44 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># import the fizzbuzz function from the fizzbuzz script </span>
+<div class="highlight hl-python"><pre><span></span><span class="c1"># import fizzbuzz</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">fizzbuzz</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">fizzbuzz</span> 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
+<span class="c1"># check the function returns numeric inputs as string</span>
 
-<span class="c1"># start putting the tests into functions </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_return_as_string</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"1"</span>
 
+<span class="c1">#test function works for multiples of 3</span>
 
-<span class="c1">#test the function exists </span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_exists</span><span class="p">():</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">fizzbuzz</span>
-    <span class="k">assert</span> <span class="nb">callable</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">)</span>
-
-<span class="c1"># test the basic functionality of the fizzbuzz function </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_multi_three</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_basics</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">"fizz"</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s2">"buzz"</span><span class="p">]</span>
+<span class="c1"># test function works for multiples of 5 </span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_multi_five</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
 
 
-<span class="c1"># test the 0 error</span>
+<span class="c1"># test function works for multiples of 15 </span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_zero_error</span><span class="p">():</span>
-    <span class="c1">#import pytest </span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
-        <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_multi_fifteen</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizzbuzz"</span>
 
-<span class="c1"># test the negative value error</span>
+<span class="c1"># start testing for errors</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_negative</span><span class="p">():</span>
-    <span class="c1">#import pytest</span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
-        <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># test the error for the data type of num_entry </span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_fizzbuzz_type</span><span class="p">():</span>
-    <span class="c1">#import pytest</span>
+<span class="c1">#check that input is int</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_non_int_input</span><span class="p">():</span>
     <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
         <span class="n">fizzbuzz</span><span class="p">(</span><span class="s2">"hello!"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_non_negative_input</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7726,7 +7696,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="GitHub-Actions-Workflow-(YAML)">GitHub Actions Workflow (YAML)<a class="anchor-link" href="#GitHub-Actions-Workflow-(YAML)">¶</a></h1><p>Below is the code for the .yml file used for the GitHub actions workflow for testing the function.</p>
+<p><a id="gitHub-actions-workflow-yml"></a></p>
+<h2 id="GitHub-Actions-Workflow-(YML)">GitHub Actions Workflow (YML)<a class="anchor-link" href="#GitHub-Actions-Workflow-(YML)">¶</a></h2><p>Below is the code for the .yml file used for the GitHub actions workflow for testing the function.</p>
 <div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fizzbuzz tests</span>
 
 <span class="c1"># specify when we want this to be triggered</span>
