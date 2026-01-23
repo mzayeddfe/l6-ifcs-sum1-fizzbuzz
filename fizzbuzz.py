@@ -1,9 +1,10 @@
 def fizzbuzz(n):
 
-    # check if value is bigger than 0 to disqualify negatives 
+    #negative value check
 
-    if n < 0 :
-        raise ValueError("Input must be a positive number")
+    if n <0:
+        raise ValueError("Input must be a non negative number")
+
 
     if n % 15 == 0: 
         return "Fizzbuzz"
