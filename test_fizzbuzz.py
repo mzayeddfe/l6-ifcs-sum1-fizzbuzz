@@ -1,42 +1,38 @@
-# import the fizzbuzz function from the fizzbuzz script 
+# import fizzbuzz
 
-from fizzbuzz import fizzbuzz
+from fizzbuzz import fizzbuzz 
 import pytest
 
+# check the function returns numeric inputs as string
 
-# start putting the tests into functions 
+def test_return_as_string():
+    assert fizzbuzz(1) == "1"
 
+#test function works for multiples of 3
 
-#test the function exists 
-
-def test_fizzbuzz_exists():
-    from fizzbuzz import fizzbuzz
-    assert callable(fizzbuzz)
-
-# test the basic functionality of the fizzbuzz function 
+def test_multi_three():
+    assert fizzbuzz(3) == "Fizz"
 
 
-def test_fizzbuzz_basics():
-    assert fizzbuzz(5) == [1,2,"fizz",4,"buzz"]
+# test function works for multiples of 5 
+
+def test_multi_five():
+    assert fizzbuzz(5) == "Buzz"
 
 
-# test the 0 error
+# test function works for multiples of 15 
 
-def test_fizzbuzz_zero_error():
-    #import pytest 
-    with pytest.raises(ValueError):
-        fizzbuzz(0)
+def test_multi_fifteen():
+    assert fizzbuzz(15) == "Fizzbuzz"
 
-# test the negative value error
+# start testing for errors
 
-def test_fizzbuzz_negative():
-    #import pytest
-    with pytest.raises(ValueError):
-        fizzbuzz(-1)
-
-# test the error for the data type of num_entry 
-
-def test_fizzbuzz_type():
-    #import pytest
+#check that input is int
+def test_non_int_input():
     with pytest.raises(TypeError):
         fizzbuzz("hello!")
+
+
+def test_non_negative_input():
+    with pytest.raises(ValueError):
+        fizzbuzz(-1)

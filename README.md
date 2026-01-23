@@ -4,7 +4,11 @@
 
 ### What is this? 
 
-This program implements the classic FizzBuzz problem. To use it, run the `fizzbuzz.py` script. The function lists numbers from 1 to the number you provide, but for multiples of 3, it prints "Fizz" instead of the number, for multiples of 5, it prints "Buzz", and for multiples of both 3 and 5, it prints "FizzBuzz".
+This program implements the classic FizzBuzz problem. The main logic is in `fizzbuzz.py`, and tests are in `test_fizzbuzz.py`. The function takes a single integer and returns:
+- "Fizzbuzz" if the number is divisible by both 3 and 5
+- "Fizz" if divisible by 3
+- "Buzz" if divisible by 5
+- The number as a string otherwise.
 
 ### How do I use it?
 1. [Install dependencies](#installing-dependencies) if you do not already have them.
@@ -23,7 +27,7 @@ This program implements the classic FizzBuzz problem. To use it, run the `fizzbu
 
 ### Using the fizzbuzz Function in Your Code
 
-You can import the `fizzbuzz` function from `fizzbuzz.py` and use it in your own Python scripts or in the Python interactive shell.
+You can import the `fizzbuzz` function from `fizzbuzz.py` and use it in your own Python scripts or in the Python interactive shell. The function returns a string for a single number.
 
 #### Example Usage
 
@@ -34,27 +38,31 @@ You can import the `fizzbuzz` function from `fizzbuzz.py` and use it in your own
    ```
 3. Call the function with your desired range (e.g., 1 to 100):
    ```python
-   fizzbuzz(100)
+
+   print(fizzbuzz(15))  # Output: Fizzbuzz
+   print(fizzbuzz(9))   # Output: Fizz
+   print(fizzbuzz(10))  # Output: Buzz
+   print(fizzbuzz(7))   # Output: 7
    ```
 
-This will print the FizzBuzz sequence from 1 to 100.
+This will print the FizzBuzz result for a single number.
 
 
 
 ## Technical Documentation
 
 - **fizzbuzz.py**: Contains the main logic for the FizzBuzz problem.
-- **test_fizzbuzz.py**: Contains tests for the FizzBuzz implementation using pytest.
+- **test_fizzbuzz.py**: Contains tests for the FizzBuzz implementation using pytest. (Note: The test file must be named with underscores, not dashes, for pytest to discover it.)
 - **.github/workflows/fizzbuzz-tests.yml**: GitHub Actions workflow file that automatically runs the test suite on every push and pull request. It sets up a Python environment, installs dependencies, and runs pytest to ensure code quality and correctness.
 
-The main function iterates from 1 to the number provided to the function and prints the appropriate output based on divisibility by 3 and/or 5.
+The main function takes a single integer and returns the appropriate FizzBuzz string based on divisibility by 3 and/or 5.
 
 ## Developer Documentation
 
 
 ### Project Structure
 - `fizzbuzz.py`: Main script.
-- `test_fizzbuzz.py`: Test script.
+- `test_fizzbuzz.py`: Test script (ensure the file is named with underscores, not dashes).
 - `.github/workflows/fizzbuzz-tests.yml`: Continuous Integration (CI) workflow for automated testing with GitHub Actions.
 
 ### Continuous Integration
@@ -66,7 +74,7 @@ To run the tests locally, make sure you are in the project root directory. Run t
 ```
 pytest
 ```
-Pytest will automatically discover and run all test files named `test_*.py`.
+Pytest will automatically discover and run all test files named `test_*.py` (with underscores).
 
 ### Contribution Guidelines
 - Follow PEP8 style guidelines.
